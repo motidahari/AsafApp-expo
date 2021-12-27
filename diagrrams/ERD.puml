@@ -1,0 +1,145 @@
+
+@startuml
+class Users {
+    First_name
+    Last_name
+    Phone_Number
+    Email
+    Password
+    Gender
+    Id_Image
+    User_Avatar
+    Degree
+    Rating
+}
+class Cars {
+    Car_Id
+    Car_model
+    Car_seat_num
+    Car_color
+
+}
+class Benefits {
+    Benefit_Id
+    Benefit_name
+    Benefit_image
+}
+class Notifications {
+    Notifications_Id
+    Notifications_mssg
+
+}
+class Chats {
+    Drive_Id
+    User_Id
+    message_Date
+    message
+}
+class Drives {
+    Drive_Id
+    User_Id
+    Chat_Id
+    Date
+    Staring_point
+    End_point
+    Num_seat_available
+    Price
+    AVG_Price
+    Upcoming_Drives
+    Passengers
+}
+class Charges {
+    Charge_Id
+    Drive_Id
+    User_Id
+    Date
+    Price
+}
+class Ratings {
+    User_Id
+    RatingUser_Id
+    Rating
+}
+class Universities {
+    Universities_Id
+    Universities_name
+
+}
+class Cities {
+    City_Id
+    City_name
+}
+
+class Cities_Universities {
+    Universities_Id
+    Cities_Id
+}
+class Users_Notifications {
+    Users_Id
+    Notifications_Id
+}
+class Users_Universities {
+    Users_Id
+    Notifications_Id
+}
+class Cities_Users {
+    User_Id
+    City_Id
+}
+class Users_Charges {
+    Users_Id
+    Charges_Id
+}
+class Users_Ratings {
+    Users_Id
+    Ratings_Id
+}
+class Users_Benefits {
+    Users_Id
+    Benefits_Id
+}
+class Users_Cars {
+    Users_Id
+    Cars_Id
+}
+class Users_Drives {
+    Users_Id
+    Drive_Id
+}
+class Users_Chats {
+    Users_Id
+    Chats_Id
+}
+
+
+Users --|> Users_Charges
+Users_Charges--|> Charges
+
+Users --|> Users_Cars
+Users_Cars--|> Cars
+
+Users --|> Users_Notifications
+Users_Notifications--|> Notifications
+
+Users --|> Users_Benefits
+Users_Benefits--|> Benefits
+
+Users --|> Users_Ratings
+Users_Ratings--|> Ratings
+
+Users --|> Users_Universities
+Users_Universities--|> Universities
+
+Universities --|> Cities_Universities
+Cities_Universities--|> Cities
+
+Users --|> Cities_Users
+Cities_Users--|> Cities
+
+Users --|> Users_Drives
+Users_Drives--|> Drives
+
+Users --|> Users_Chats
+Users_Chats--|> Chats
+
+@enduml
